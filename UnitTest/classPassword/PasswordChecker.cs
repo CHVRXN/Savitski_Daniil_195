@@ -14,17 +14,9 @@ namespace ClassLabraryPassword
             {
                 return false;
             }
-/*            if (password.Length >= 8 && password.Length <= 20)
-            {
-                return true;
-            }*/
             if (!password.Any(Char.IsDigit))
             {
                 return false;
-            }
-            if (password.Any(Char.IsDigit))
-            {
-                return true;
             }
             if (!password.Any(Char.IsLower))
             {
@@ -40,6 +32,12 @@ namespace ClassLabraryPassword
             }
 
             return true;
+        }
+        static void Main()
+        {
+            bool test = PasswordChecker.validatePassword("gggfdddD_9d");
+
+            Console.WriteLine("Result " + test);
         }
     }
 }
