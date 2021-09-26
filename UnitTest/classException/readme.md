@@ -2,4 +2,4 @@
 <br>C#
 <br>C++
 <br>Java
-<br>Phyton
+<br>Python
