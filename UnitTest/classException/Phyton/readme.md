@@ -1,3 +1,3 @@
 <br>IDE: onlinegdb
-<br>lang: Phyton
+<br>lang: Python
 <br>Проект: Консольное приложение
