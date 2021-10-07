@@ -56,8 +56,8 @@ int main()
 	blur(src_gray, src_gray, Size(10, 10)); //Создание размытого  фото
 	imwrite("blur.jpg", src_gray); //Сохранение размытого фото в папку с программой
 
-	double otsu_tresh_val = threshold(src_gray, img, 0, 255, THRESH_BINARY | THRESH_OTSU);
-	double high_tresh_val = otsu_tresh_val, lower_tresh_val = otsu_tresh_val * 0.5;
+	double otsu_tresh_val = threshold(src_gray, img, 0, 255, THRESH_BINARY | THRESH_OTSU); // Диапозон яркости
+	double high_tresh_val = otsu_tresh_val, lower_tresh_val = otsu_tresh_val * 0.5; //Указание максимального и минимального порога
 
 	cout << otsu_tresh_val;
 	Canny(src_gray, canny_output, lower_tresh_val, high_tresh_val, 3);
