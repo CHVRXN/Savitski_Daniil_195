@@ -20,7 +20,7 @@ int main()
 	double fontScale = 2;
 	Scalar color(200, 100, 50);
 	putText(img, "OpenCV Step By Step", textOrg, fontFace, fontScale, color);
-	namedWindow("¬˚‚Ó‰", 0);
+	namedWindow("√Ç√ª√¢√Æ√§", 0);
 	imshow("Hello world", img);
 	waitKey(0);
 	return 0;
@@ -29,57 +29,57 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	char filename[80]; //road.jpg
-	cout << "¬‚Â‰ËÚÂ ËÏˇ Ù‡ÈÎ‡, ÍÓÚÓ˚È ·Û‰ÂÚ ËÁÏÂÌÂÌ" << endl;
+	cout << "√Ç√¢√•√§√®√≤√• √®√¨√ø √¥√†√©√´√†, √™√Æ√≤√Æ√∞√ª√© √°√≥√§√•√≤ √®√ß√¨√•√≠√•√≠" << endl;
 	cin.getline(filename, 80);
-	cout << "ŒÚÍ˚Ú¸ Ù‡ÈÎ" << endl;
+	cout << "√é√≤√™√∞√ª√≤√º √¥√†√©√´" << endl;
 
 	Mat img = imread("road.jpg", 1);
-	const char* source_window = "»ÒıÓ‰ÌÓÂ ËÁÓ·‡ÊÂÌËÂ";
+	const char* source_window = "√à√±√µ√Æ√§√≠√Æ√• √®√ß√Æ√°√∞√†√¶√•√≠√®√•";
 
 	namedWindow(source_window, WINDOW_GUI_EXPANDED);
 	imshow(source_window, img);
 
 	Mat scr_gray;
 	Mat canny_output;
-	cvtColor(img, scr_gray, COLOR_RGB2GRAY); //—ÓÁ‰‡ÌËÂ ˜·  ÙÓÚÓ
-	imwrite("cvtColor.jpg", scr_gray); //—Óı‡ÌÂÌËÂ ˜· ÙÓÚÓ ‚ Ô‡ÔÍÛ Ò ÔÓ„‡ÏÏÓÈ
-	blur(scr_gray, scr_gray, Size(10, 10)); //—ÓÁ‰‡ÌËÂ ‡ÁÏ˚ÚÓ„Ó  ÙÓÚÓ
-	imwrite("blur.jpg", scr_gray); //—Óı‡ÌÂÌËÂ ‡ÁÏ˚ÚÓ„Ó ÙÓÚÓ ‚ Ô‡ÔÍÛ Ò ÔÓ„‡ÏÏÓÈ
+	cvtColor(img, scr_gray, COLOR_RGB2GRAY); //√ë√Æ√ß√§√†√≠√®√• √∑√°  √¥√Æ√≤√Æ
+	imwrite("cvtColor.jpg", scr_gray); //√ë√Æ√µ√∞√†√≠√•√≠√®√• √∑√° √¥√Æ√≤√Æ √¢ √Ø√†√Ø√™√≥ √± √Ø√∞√Æ√£√∞√†√¨√¨√Æ√©
+	blur(scr_gray, scr_gray, Size(10, 10)); //√ë√Æ√ß√§√†√≠√®√• √∞√†√ß√¨√ª√≤√Æ√£√Æ  √¥√Æ√≤√Æ
+	imwrite("blur.jpg", scr_gray); //√ë√Æ√µ√∞√†√≠√•√≠√®√• √∞√†√ß√¨√ª√≤√Æ√£√Æ √¥√Æ√≤√Æ √¢ √Ø√†√Ø√™√≥ √± √Ø√∞√Æ√£√∞√†√¨√¨√Æ√©
 
 	double otsu_thresh_val = threshold(scr_gray, img, 0, 255, THRESH_BINARY | THRESH_OTSU);
 	double high_thresh_val = otsu_thresh_val, lower_thresh_val = otsu_thresh_val * 0.5;
 	cout << otsu_thresh_val;
 	Canny(scr_gray, canny_output, lower_thresh_val, high_thresh_val, 3);
 
-	const char* sorce_grey_window = "—ÂÓÂ ËÁÓ·‡ÊÂÌËÂ";
+	const char* sorce_grey_window = "√ë√•√∞√Æ√• √®√ß√Æ√°√∞√†√¶√•√≠√®√•";
 	namedWindow(sorce_grey_window, WINDOW_GUI_EXPANDED);
 	imshow(sorce_grey_window, canny_output);
 	imwrite("canny_output.jpg", canny_output);
 
-	RNG rng(12345);
+	RNG rng(12345); //–í—ã–±–æ—Ä —Å–ª—É—á–∞–π–Ω–æ–≥–æ —Ü–≤–µ—Ç–∞ –∏–∑ –¥–∏–∞–ø–æ–∑–æ–Ω–∞
 	vector<vector<Point>>contours;
 	vector<Vec4i>hierarchy;
 
-	findContours(canny_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+	findContours(canny_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0)); //—Ñ—É–Ω–∫–∏—è –ø–æ–∏—Å–∫–∞ –∫–æ–Ω—Ç—É—Ä–∞, —Ä–µ–∂–∏–º –≥—Ä—É–ø–ø–∏—Ä–æ–∫–∏, –º–µ—Ç–æ–¥–∞ —É–ø–∞–∫–æ–≤–∫–∏
 
-	vector<Moments>mu(contours.size());
+	vector<Moments>mu(contours.size()); // –°–æ–∑–¥–∞–µ—Ç—Å—è –≤–µ–∫—Ç–æ—Ä –º–æ–º–µ–Ω—Ç–æ–≤, –∫—É–¥–∞ –ø–µ—Ä–µ–¥–∞–µ—Ç—Å—è –∫–æ–ª–∏—á–µ—Å—Ç–≤–æ –∫–æ–Ω—Ç—É—Ä–æ–≤, –∫–æ—Ç–æ—Ä–æ–µ –∑–∞–≤–∏—Å–∏—Ç –æ—Ç –∏–∑–æ–±—Ä–∞–∂–µ–Ω–∏—è
 	for (int i = 0; i < contours.size(); i++)
 	{
-		mu[i] = moments(contours[i], false);
+		mu[i] = moments(contours[i], false); // –ü–µ—Ä–µ–¥–∞—á–∞ –≤–µ–∫—Ç–æ—Ä–æ–≤ –≤ –º–∞—Å—Å–∏–≤
 	}
 
 	vector<Point2f>mc(contours.size());
 	for (int i = 0; i < contours.size(); i++)
-	{
-		mc[i] = Point2f(mu[i].m10 / mu[i].m00, mu[i].m01 / mu[i].m00);
+	{ 
+		mc[i] = Point2f(mu[i].m10 / mu[i].m00, mu[i].m01 / mu[i].m00); // –í—ã–≤–æ–¥ x –∏ y –≤–µ–∫—Ç–æ—Ä–æ–≤
 	}
 	
 	for (int i = 0; i < contours.size(); i++)
 	{
-		printf(" ÓÌÚÛ π %d: ˆÂÌÚ Ï‡ÒÒ - x = %.2f y = %.2f; ‰ÎËÌ‡ - %.2f \n", i, mu[i].m10 / mu[i].m00, mu[i].m01 / mu[i].m00, arcLength(contours[i], true));
+		printf("√ä√Æ√≠√≤√≥√∞ ¬π %d: √∂√•√≠√≤√∞ √¨√†√±√± - x = %.2f y = %.2f; √§√´√®√≠√† - %.2f \n", i, mu[i].m10 / mu[i].m00, mu[i].m01 / mu[i].m00, arcLength(contours[i], true));
 	}
 
-	Mat drawing = Mat::zeros(canny_output.size(), CV_8UC3); //CV_8UC3 - ËÁÓ·‡ÊÂÌËÂ ·ÂÁ ÁÌ‡Í‡ Ò 3 Í‡Ì‡Î‡ÏË
+	Mat drawing = Mat::zeros(canny_output.size(), CV_8UC3); //CV_8UC3 - √®√ß√Æ√°√∞√†√¶√•√≠√®√• √°√•√ß √ß√≠√†√™√† √± 3 √™√†√≠√†√´√†√¨√®
 
 	for (int i = 0; i < contours.size(); i++)
 	{
@@ -88,8 +88,8 @@ int main()
 		circle(drawing, mc[i], 4, color, -1, 5, 0);
 	}
 
-	namedWindow(" ÓÌÚÛ˚", WINDOW_GUI_EXPANDED);
-	imshow(" ÓÌÚÛ˚", drawing);
+	namedWindow("√ä√Æ√≠√≤√≥√∞√ª", WINDOW_GUI_EXPANDED);
+	imshow("√ä√Æ√≠√≤√≥√∞√ª", drawing);
 
 
 	waitKey(0);
